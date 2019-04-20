@@ -115,8 +115,8 @@
             <content>
                 <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
                     <children>
-                        <Button onAction="#btnTextSearchClick" prefWidth="175.0" text="2.4 Full Text Search" />
-                        <Button onAction="#btnRentFilterClick" prefWidth="175.0" text="2.5 Rent Filtering" />
+                        <Button onAction="#btnTextSearchClick" prefWidth="175.0" text="2.4 Car search Search" />
+                        <Button onAction="#btnRentFilterClick" prefWidth="175.0" text="2.5 Rent result" />
                         <Button onAction="#btnCarSortClick" prefWidth="175.0" text="2.6 Cars Sort by Rents" />
                     </children>
                 </VBox>

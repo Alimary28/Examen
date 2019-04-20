@@ -99,17 +99,17 @@ public class CarService {
     public List<RentVM> getOrderedByTransactions() {
         Map<String, Integer> frequencies = new HashMap<>();
         for (Rent rent : rentIRepository.getAll()) {
-            String thingId = rent.getCarId();
-            if (frequencies.containsKey(thingId))
-                frequencies.put(thingId, frequencies.get(thingId) + 1);
+            String carId = rent.getCarId();
+            if (frequencies.containsKey(carId))
+                frequencies.put(carId, frequencies.get(carId) + 1);
             else
-                frequencies.put(thingId, 1);
+                frequencies.put(carId, 1);
         }
 
         List<RentVM> results = new ArrayList<>();
-        for (String thingId : frequencies.keySet()) {
-            Car car = carIRepository.findById(thingId);
-            results.add(new RentVM(car, frequencies.get(thingId)));
+        for (String carId : frequencies.keySet()) {
+            Car car = carIRepository.findById(carId);
+            results.add(new RentVM(car, frequencies.get(carId)));
         }
         results.sort((f1, f2) -> f2.rents - f1.rents);
         return results;

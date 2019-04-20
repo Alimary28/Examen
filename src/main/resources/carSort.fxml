@@ -32,17 +32,7 @@
                             <cellValueFactory>
                                 <PropertyValueFactory property="model" />
                             </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn fx:id="colCarKilometers" prefWidth="81.0" style="-fx-alignment: CENTER;" text="Kilometers">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="kilometers" />
-                            </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn fx:id="colCarPrice" prefWidth="76.0" style="-fx-alignment: CENTER;" text="Ticket Price">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="price" />
-                            </cellValueFactory>
-                        </TableColumn>
+                        </TableColumn>>
                         <TableColumn fx:id="colCarRents" prefWidth="81.0" style="-fx-alignment: CENTER;" text="Rents">
                             <cellValueFactory>
                                 <PropertyValueFactory property="rents" />
