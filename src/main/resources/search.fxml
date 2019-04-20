@@ -80,14 +80,9 @@
                                         <PropertyValueFactory property="carId"/>
                                     </cellValueFactory>
                                 </TableColumn>
-                                <TableColumn fx:id="colTransactionDate" prefWidth="90.0" style="-fx-alignment: CENTER;" text="Date">
+                                <TableColumn fx:id="colRentDays" prefWidth="90.0" style="-fx-alignment: CENTER;" text="Days">
                                     <cellValueFactory>
-                                        <PropertyValueFactory property="date"/>
-                                    </cellValueFactory>
-                                </TableColumn>
-                                <TableColumn fx:id="colTransactionTime" prefWidth="68.0" style="-fx-alignment: CENTER;" text="Time">
-                                    <cellValueFactory>
-                                        <PropertyValueFactory property="time"/>
+                                        <PropertyValueFactory property="days"/>
                                     </cellValueFactory>
                                 </TableColumn>
                                 <TableColumn fx:id="colKilometers" prefWidth="68.0" style="-fx-alignment: CENTER;" text="Kilometers">

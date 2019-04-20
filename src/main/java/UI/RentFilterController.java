@@ -21,13 +21,8 @@ public class RentFilterController {
     public TableView tblRents;
     public TableColumn colRentId;
     public TableColumn colRentCarId;
-    public TableColumn colTransactionDate;
-    public TableColumn colTransactionTime;
-    public TableColumn colKilometers;
-    public TextField txtStartHour;
-    public TextField txtStartMinutes;
-    public TextField txtEndHour;
-    public TextField txtEndMinutes;
+    public TableColumn colRentDays;
+    public TextField txtDayOfRent;
     public Button btnShowResults;
     public Button btnCancel;
 
@@ -49,15 +44,9 @@ public class RentFilterController {
 
     public void btnShowResultsClick(ActionEvent actionEvent) {
         try {
-            int startHour = Integer.parseInt(txtStartHour.getText());
-            int startMinutes = Integer.parseInt(txtStartMinutes.getText());
-            LocalTime startTime = LocalTime.of(startHour, startMinutes);
+            int days = Integer.parseInt(txtDayOfRent.getText());
 
-            int endHour = Integer.parseInt(txtEndHour.getText());
-            int endMinutes = Integer.parseInt(txtEndMinutes.getText());
-            LocalTime endTime = LocalTime.of(endHour, endMinutes);
-
-            List<Rent> rentResults = rentService.transactionsWithinTimeInterval(startTime, endTime);
+            List<Rent> rentResults = rentService.transactionsWithinTimeInterval(days);
 
             rents.clear();
             rents.addAll(rentResults);

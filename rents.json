@@ -1,1 +1,2 @@
-{"carId":"1","date":{"year":2018,"month":2,"day":15},"time":{"hour":12,"minute":30,"second":0,"nano":0},"kilometers":50,"id":"1"}
+{"carId":"1","days":2,"kilometers":20,"id":"1"}
+{"carId":"1","days":3,"kilometers":45,"id":"2"}

@@ -13,25 +13,12 @@
         <TextField fx:id="txtCarId" promptText="Car ID" />
         <VBox alignment="CENTER" prefHeight="30.0" prefWidth="100.0">
             <children>
-                <Label text="Date of rent:" />
+                <Label text="Days of rent:" />
             </children>
         </VBox>
         <HBox prefHeight="100.0" prefWidth="200.0">
             <children>
-                <TextField fx:id="txtDayOfTransaction" promptText="Day" />
-                <TextField fx:id="txtMonthOfTransaction" promptText="Month" />
-                <TextField fx:id="txtYearOfTransaction" promptText="Year" />
-            </children>
-        </HBox>
-        <VBox alignment="CENTER" prefHeight="30.0" prefWidth="100.0">
-            <children>
-                <Label text="Time of rent:" />
-            </children>
-        </VBox>
-        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-            <children>
-                <TextField fx:id="txtHour" alignment="CENTER" maxWidth="60.0" promptText="Hour" />
-                <TextField fx:id="txtMinutes" alignment="CENTER" maxWidth="60.0" promptText="Minutes" />
+                <TextField fx:id="txtDayOfRent" promptText="Days" />
             </children>
         </HBox>
         <TextField fx:id="txtKilometers" promptText="Kilometers" />

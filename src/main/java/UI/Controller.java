@@ -31,8 +31,7 @@ public class Controller {
     public TableView tblRents;
     public TableColumn colRentId;
     public TableColumn colRentCarId;
-    public TableColumn colTransactionDate;
-    public TableColumn colTransactionTime;
+    public TableColumn colRentDays;
     public TableColumn colKilometers;
 
     private CarService carService;

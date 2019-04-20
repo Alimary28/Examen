@@ -27,13 +27,13 @@ public class RentService {
      * @param id is the ID of the rent.
      * @param carId is the ID of the car on the reservation.
 
-     * @param date is the date when the reservation was made.
-     * @param time is the time when the reservation was made.
+     * @param days are the days of rent was made.
+
      * @throws RentServiceExceptiom if the film's ID does not exist or the film is not scheduled to run.
      */
 
-    public void addRent(String id, String carId, LocalDate date, LocalTime time, int kilometers) {
-        Rent rent = new Rent(id, carId, date, time, kilometers);
+    public void addRent(String id, String carId, int days, int kilometers) {
+        Rent rent = new Rent(id, carId, days, kilometers);
         if (rentIRepository.getStorage().containsKey(id))
             throw new RentServiceExceptiom(String.format("A rent with the ID %s already exists!", id));
 
@@ -53,13 +53,12 @@ public class RentService {
     /**
      * Updates a rent.
      * @param id is the new ID of the transaction.
-     * @param date is the new date when the transaction was made.
-     * @param time is the new time when the transaction was made.
+     * @param days  of rent
      * @throws RentServiceExceptiom if there is no reservation with the given ID to update.
      */
 
-    public void updateRent(String id, String carId, LocalDate date, LocalTime time, int kilometers) {
-        Rent rent = new Rent(id, carId, date, time, kilometers);
+    public void updateRent(String id, String carId, int days, int kilometers) {
+        Rent rent = new Rent(id, carId, days, kilometers);
         if (!rentIRepository.getStorage().containsKey(id))
             throw new RentServiceExceptiom(String.format("There is no rent with the ID %s!", id));
         undoableOperations.add(new UpdateOperation<>(rentIRepository, rentIRepository.findById(id), rent));
@@ -98,34 +97,26 @@ public class RentService {
     public List<Rent> fullTextSearch(String text) {
         List<Rent> results = new ArrayList<>();
         for (Rent rent : getAllRents())
-            if (rent.getCarId().contains(text) || rent.getDate().toString().contains(text) ||
-                    rent.getTime().toString().contains(text))
+            if (rent.getCarId().contains(text))
                 results.add(rent);
         return results;
     }
 
     /**
      * Searches for rents within a given time interval.
-     * @param start is the lower boundary of the time interval.
-     * @param end is the upper boundary of the time interval.
+
      * @return a list with rents that match the given criteria.
      */
 
-    public List<Rent> transactionsWithinTimeInterval(LocalTime start, LocalTime end) {
+    public List<Rent> transactionsWithinTimeInterval(int Days) {
         List<Rent> results = new ArrayList<>();
         for (Rent rent : rentIRepository.getAll())
-            if (rent.getTime().isAfter(start) && rent.getTime().isBefore(end))
+            if (rent.getDays() > 0)
                 results.add(rent);
         return results;
     }
 
-    /**
-     * Removes rents within a given date interval.
-     * @param start is the lower boundary of the date interval.
-     * @param end is the upper boundary of the date interval.
-     */
-
-    public void removeTransactionsWithinDateInterval(LocalDate start, LocalDate end) {
+    /*public void removeTransactionsWithinDateInterval(LocalDate start, LocalDate end) {
         List<Rent> canceled = new ArrayList<>();
 
         for (Rent rent : rentIRepository.getAll())
@@ -135,7 +126,7 @@ public class RentService {
             }
         undoableOperations.add(new TransactionDeleteOperation<>(rentIRepository, canceled));
         redoableOperations.clear();
-    }
+    }*/
 
     public void undo() {
         if (!undoableOperations.isEmpty()) {

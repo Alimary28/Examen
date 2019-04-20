@@ -6,15 +6,13 @@ import java.time.LocalTime;
 public class Rent extends Entity {
 
     private String carId;
-    private LocalDate date;
-    private LocalTime time;
+    private int days;
     private int kilometers;
 
-    public Rent(String id, String carId, LocalDate date, LocalTime time, int kilometers) {
+    public Rent(String id, String carId, int days, int kilometers) {
         super(id);
         this.carId = carId;
-        this.date = date;
-        this.time = time;
+        this.days = days;
         this.kilometers = kilometers;
     }
 
@@ -23,8 +21,7 @@ public class Rent extends Entity {
         return "Rent{" +
                 "id='" + id + '\'' +
                 ", carId='" + carId + '\'' +
-                ", date=" + date +
-                ", time=" + time +
+                ", days=" + days +
                 ", kilometers=" + kilometers +
                 '}';
     }
@@ -45,20 +42,12 @@ public class Rent extends Entity {
         this.carId = carId;
     }
 
-    public LocalDate getDate() {
-        return date;
+    public int getDays() {
+        return days;
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
-
-    public LocalTime getTime() {
-        return time;
-    }
-
-    public void setTime(LocalTime time) {
-        this.time = time;
+    public void setDays(int days) {
+        this.days = days;
     }
 
     public int getKilometers() {
