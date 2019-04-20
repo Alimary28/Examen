@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" prefHeight="1400.0" prefWidth="1400.0" spacing="10.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.SearchController">
+    <children>
+        <Label text="Full Text Search">
+            <font>
+                <Font name="System Bold" size="18.0"/>
+            </font>
+        </Label>
+        <VBox alignment="TOP_CENTER" prefHeight="800.0" prefWidth="100.0">
+            <children>
+                <Label alignment="CENTER" text="Search Cars, Rents:" textAlignment="CENTER" textOverrun="CLIP"/>
+                <HBox alignment="TOP_CENTER" prefHeight="50.0" prefWidth="200.0" spacing="10.0">
+                    <children>
+                        <TextField fx:id="txtSearchText" prefWidth="400.0" promptText="Enter text to search..."/>
+                        <HBox prefHeight="50.0" prefWidth="200.0">
+                            <children>
+                                <Button fx:id="btnSearch" onAction="#btnSearchClick" text="Search"/>
+                                <Button fx:id="btnCancel" onAction="#btnCancelClick" text="Cancel"/>
+                            </children>
+                        </HBox>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="40.0" prefWidth="600.0" spacing="380.0">
+                    <children>
+                        <Label text="Cars results">
+                            <font>
+                                <Font name="System Bold" size="16.0"/>
+                            </font></Label>
+                        <Label layoutX="38.0" layoutY="10.0" text="Rents">
+                            <font>
+                                <Font name="System Bold" size="16.0"/>
+                            </font></Label>
+                    </children></HBox>
+                <HBox alignment="TOP_CENTER" prefHeight="410.0" prefWidth="200.0" spacing="40.0">
+                    <children>
+                        <TableView fx:id="tblCars" editable="true" prefHeight="410.0" prefWidth="400.0">
+                            <columns>
+                                <TableColumn fx:id="colCarId" prefWidth="50.0" style="-fx-alignment: CENTER;" text="ID">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="id"/>
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn fx:id="colCarModel" prefWidth="140.0" style="-fx-alignment: CENTER;" text="Model">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="model"/>
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn fx:id="colCarKilometers" prefWidth="70.0" style="-fx-alignment: CENTER;" text="Kilometers">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="kilometers"/>
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn fx:id="colCarPrice" prefWidth="70.0" style="-fx-alignment: CENTER;" text="Price">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="price"/>
+                                    </cellValueFactory>
+                                </TableColumn>
+                            </columns>
+                        </TableView>
+                        <TableView fx:id="tblRents" editable="true" prefHeight="410.0" prefWidth="350.0">
+                            <columns>
+                                <TableColumn fx:id="colRentId" prefWidth="60.0" style="-fx-alignment: CENTER;" text="ID">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="id"/>
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn fx:id="colRentCarId" prefWidth="65.0" style="-fx-alignment: CENTER;" text="Car id">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="carId"/>
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn fx:id="colTransactionDate" prefWidth="90.0" style="-fx-alignment: CENTER;" text="Date">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="date"/>
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn fx:id="colTransactionTime" prefWidth="68.0" style="-fx-alignment: CENTER;" text="Time">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="time"/>
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn fx:id="colKilometers" prefWidth="68.0" style="-fx-alignment: CENTER;" text="Kilometers">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="kilometers"/>
+                                    </cellValueFactory>
+                                </TableColumn>
+                            </columns>
+                        </TableView>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</VBox>

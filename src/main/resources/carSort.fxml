@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.CarSortController">
+    <children>
+        <HBox alignment="TOP_CENTER" prefHeight="50.0" prefWidth="200.0">
+            <children>
+                <Label text="Sort by rents">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                </Label>
+            </children>
+        </HBox>
+        <HBox alignment="TOP_CENTER" prefHeight="434.0" prefWidth="460.0">
+            <children>
+                <TableView fx:id="tblCars" editable="true" prefHeight="434.0" prefWidth="460.0">
+                    <columns>
+                        <TableColumn fx:id="colCarId" prefWidth="33.0" style="-fx-alignment: CENTER;" text="ID">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="id" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="colCarModel" prefWidth="119.0" style="-fx-alignment: CENTER;" text="Model">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="model" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="colCarKilometers" prefWidth="81.0" style="-fx-alignment: CENTER;" text="Kilometers">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="kilometers" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="colCarPrice" prefWidth="76.0" style="-fx-alignment: CENTER;" text="Ticket Price">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="price" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="colCarRents" prefWidth="81.0" style="-fx-alignment: CENTER;" text="Rents">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="rents" />
+                            </cellValueFactory>
+                        </TableColumn>
+                    </columns>
+                </TableView>
+            </children></HBox>
+    </children>
+</VBox>
+
+
